@@ -1,4 +1,5 @@
-const { Schema, Types, model } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema, Types } = mongoose;
 
 const reactionSchema = new Schema(
     {
@@ -22,10 +23,6 @@ const reactionSchema = new Schema(
                 return createdAt.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
             }
         },
-        username: {
-            type: String,
-            required: true
-        }
     },
     {
         toJSON: {
@@ -34,6 +31,6 @@ const reactionSchema = new Schema(
     }
 );
 
-const Reaction = model('Reaction', reactionSchema);
+
 
 module.exports = reactionSchema;
